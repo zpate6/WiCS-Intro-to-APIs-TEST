@@ -2,7 +2,7 @@
   "name": "wics-intro-to-apis-test",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
+  "type":"module",
   "scripts": {
     "start": "nodemon index.js"
   },
@@ -11,19 +11,11 @@
   "description": "",
   "dependencies": {
     "body-parser": "^2.2.0",
-    "dotenv": "^17.2.3",
+    "dotenv": "^17.2.2",
     "express": "^5.1.0",
-    "mongoose": "^8.19.0"
+    "mongoose": "^8.18.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zpate6/WiCS-Intro-to-APIs-TEST.git"
-  },
-  "bugs": {
-    "url": "https://github.com/zpate6/WiCS-Intro-to-APIs-TEST/issues"
-  },
-  "homepage": "https://github.com/zpate6/WiCS-Intro-to-APIs-TEST#readme"
+  }
 }
