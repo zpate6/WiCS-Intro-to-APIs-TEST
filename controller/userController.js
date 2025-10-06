@@ -2,6 +2,7 @@
 import User from "../model/userModel.js"
 
 // Code for POSTing the data into the database
+// create is an api (look at routes to see the URL to get this API)
 export const create = async(req, res)=>{
     try{
         const userData = new User(req.body);
@@ -21,7 +22,7 @@ export const create = async(req, res)=>{
         res.status(500).json({error:"Internal Server error."})
     }
 }
-
+// fetch is an api (look at routes to see the URL to get this API)
 export const fetch = async (req, res)=>{
     try{
         return res.json("Hello World.")
