@@ -24,7 +24,7 @@ export const create = async(req, res)=>{
 
 export const fetch = async (req, res)=>{
     try{
-        return res.json("Hello World.")
+        return res.json("Hola Mundo")
     }catch (error){
         res.status(500).json({error:"Internal Server error."})
     }
