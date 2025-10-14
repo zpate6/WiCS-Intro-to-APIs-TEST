@@ -17,6 +17,10 @@ const cakeSchema = new mongoose.Schema({
     amount:{
         type:Number,
         required: true
+    },
+    quantity:{
+        type:Number,
+        required: true
     }
 })
 

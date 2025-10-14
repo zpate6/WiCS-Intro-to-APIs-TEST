@@ -5,12 +5,13 @@ import Cake from "../model/cakeItem.js"
 export const addItem = async (req, res) => {
     try {
         const userData = new Cake(req.body);
-        const {name} = userData;
+        const {id} = userData;
 
-        const cakeExist = await Cake.findOne({name});
+        const cakeExist = await Cake.findOne({_id:id});
         if (cakeExist) {
             return res.status(400).json({message: "Adding another cake to your cart."})
 
+            // const updateCake = await Cake.findByIdAndUpdate(id, req.body, { new: true });
         } 
         // If cake doesn't already exist then save user
         const savedUser = await userData.save();
