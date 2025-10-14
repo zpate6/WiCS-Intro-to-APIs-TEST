@@ -25,8 +25,53 @@ export const create = async(req, res)=>{
 // fetch is an api (look at routes to see the URL to get this API)
 export const fetch = async (req, res)=>{
     try{
-        return res.json("Hello World.")
+        // fetch all users from the database
+        const users = await User.find({});
+        if (users.length === 0) {
+            res.status(404).json({message:"User not found"});
+        }
+        res.status(200).json(users);
     }catch (error){
         res.status(500).json({error:"Internal Server error."})
+    }
+}
+
+// Request that updates an existing user 
+export const update = async (req, res) => {
+    try {
+        //const { id } = req.params; 
+        const id = req.params.id;
+
+        // Check if user exists in the DB 
+        const userExists = await User.findOne({ _id: id });
+       
+        if (!userExists) {
+            return res.status(404).json({ message: "User not found." });
+        }
+
+        const updateUser = await User.findByIdAndUpdate(id, req.body, { new: true });
+        res.status(201).json(updateUser);
+
+    } catch (error) {
+        res.status(500).json({ error: "Internal Server error." });
+    }
+}
+
+// Delete User 
+export const deleteUser = async (req, res) => {
+    try {
+        const id = req.params.id;
+
+        // Check if user exists in the DB
+        const userExists = await User.findOne({ _id: id });
+
+        if (!userExists) {
+            return res.status(404).json({ message: "User not found." });
+        }
+        await User.findByIdAndDelete(id);
+        res.status(200).json({ message: "User deleted successfully." });
+    
+    } catch (error) {
+        res.status(500).json({ error: "Internal Server error." });
     }
 }
