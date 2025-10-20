@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import route from "./routes/userRoutes.js";
+import productRoute from "./routes/productRoutes.js";
 
 const app = express();
 
@@ -24,3 +25,4 @@ mongoose.connect(MONGOURL).then(()=>{
 
 // provide api endpoint: go to localhost:8000/api/user/fetch
 app.use("/api/user", route);
+app.use("/api/product", productRoute);
